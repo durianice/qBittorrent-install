@@ -26,6 +26,12 @@ systemctl start qbittorrent-nox
 systemctl enable qbittorrent-nox
 systemctl status qbittorrent-nox
 
+echo "--------------------------------"
+echo "Open ip:8080 in your browser"
+echo "user:admin"
+echo "passwd:adminadmin"
+echo "Set more config in /usr/local/etc"
+echo "--------------------------------"
 echo "======== qbittorrent-nox ========"
 echo "启动 systemctl start qbittorrent-nox"
 echo "停止 systemctl stop qbittorrent-nox"
