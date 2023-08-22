@@ -11,8 +11,8 @@ chmod +x /usr/local/bin/qbittorrent-nox
 
 CONF_PATH="/usr/local/etc"
 read -rp "请输入配置文件保存目录(回车默认${CONF_PATH}): " input
-if [[ -n input ]]; then
-    CONF_PATH=input
+if [[ -n "$input" ]]; then
+    CONF_PATH="$input"
 fi
 
 echo "[Unit]
