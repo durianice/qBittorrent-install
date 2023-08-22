@@ -5,8 +5,15 @@ if ! command -v wget &>/dev/null; then
     echo "请先安装 wget"
     exit 1
 fi
+cd ~
 wget -qO /usr/local/bin/qbittorrent-nox "https://github.com/userdocs/qbittorrent-nox-static/releases/download/release-4.5.4_v2.0.9/$TYPE-qbittorrent-nox"
 chmod +x /usr/local/bin/qbittorrent-nox
+
+CONF_PATH="/usr/local/etc"
+read -rp "请输入配置文件保存目录(回车默认${CONF_PATH}): " input
+if [[ -n input ]]; then
+    CONF_PATH=input
+fi
 
 echo "[Unit]
     Description=qBittorrent Service
@@ -14,7 +21,7 @@ echo "[Unit]
     
     [Service]
     UMask=000
-    ExecStart=/usr/local/bin/qbittorrent-nox --profile=/usr/local/etc
+    ExecStart=/usr/local/bin/qbittorrent-nox --profile="${CONF_PATH}"
     WorkingDirectory=/usr/local/bin/
     Restart=on-abnormal
     
